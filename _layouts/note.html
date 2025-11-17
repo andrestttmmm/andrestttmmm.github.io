@@ -4,23 +4,20 @@ layout: default
 
 <article>
   <h1>{{ page.title }}</h1>
-
   {{ content }}
 
   <hr>
-  <p><a href="/notes/">← Volver a notas</a></p>
-  <hr>
-
   <h3>Enlaces a esta nota</h3>
   <ul>
     {% assign current = page.url %}
     {% for note in site.notes %}
-        {% if note.url != current %}
+      {% if note.url != current %}
         {% if note.content contains current %}
-            <li><a href="{{ note.url }}">{{ note.title }}</a></li>
+          <li><a href="{{ note.url }}">{{ note.title }}</a></li>
         {% endif %}
-        {% endif %}
+      {% endif %}
     {% endfor %}
   </ul>
 
+  <p><a href="/notes/">← Volver a notas</a></p>
 </article>
