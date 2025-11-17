@@ -1,8 +1,7 @@
 ---
+layout: note
 title: Segunda nota
 ---
-
-# Segunda nota
 
 Otra idea del jardín.
 

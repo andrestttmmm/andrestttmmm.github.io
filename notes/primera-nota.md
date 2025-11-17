@@ -1,9 +1,9 @@
 ---
+layout: note
 title: Primera nota
 ---
 
-# Primera nota
+Esta es mi primera nota en el jardín digital.
 
-Esta es una nota de ejemplo.
+Enlazo a la [segunda nota](segunda-nota).
 
-Puedes enlazar a la [segunda nota](segunda-nota).
