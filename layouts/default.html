@@ -8,7 +8,33 @@
   {% seo %}
 </head>
 
-<script>
+<body>
+  <header>
+    <h1><a href="/">{{ site.title }}</a></h1>
+    <nav>
+      <a href="/">Inicio</a>
+      <a href="/notes/">Notas</a>
+      <a href="/about/">Sobre mí</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main>
+        {{ content }}
+    </main>
+
+    <aside id="toc">
+        <h3>Contenido</h3>
+        <ul id="toc-list"></ul>
+    </aside>
+  </div>
+
+
+  <footer>
+    {{ site.title }} — {{ site.author }}
+  </footer>
+
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
     const content = document.querySelector("main");
     const tocList = document.getElementById("toc-list");
@@ -36,33 +62,6 @@
         tocList.appendChild(li);
     });
     });
-</script>
-
-
-<body>
-  <header>
-    <h1><a href="/">{{ site.title }}</a></h1>
-    <nav>
-      <a href="/">Inicio</a>
-      <a href="/notes/">Notas</a>
-      <a href="/about/">Sobre mí</a>
-    </nav>
-  </header>
-
-  <div class="container">
-    <main>
-        {{ content }}
-    </main>
-
-    <aside id="toc">
-        <h3>Contenido</h3>
-        <ul id="toc-list"></ul>
-    </aside>
-  </div>
-
-
-  <footer>
-    {{ site.title }} — {{ site.author }}
-  </footer>
+  </script>
 </body>
 </html>

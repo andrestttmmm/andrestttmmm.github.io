@@ -3,7 +3,14 @@ layout: note
 title: Primera nota
 ---
 
-Esta es mi primera nota en el jardín digital.
+# Primera nota
+
+## Sección 1
+Contenido de la sección
+
+## Sección 2
+Más contenido
+
 
 Enlazo a la [segunda nota](segunda-nota).
 
