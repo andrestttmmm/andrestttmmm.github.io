@@ -8,6 +8,37 @@
   {% seo %}
 </head>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const content = document.querySelector("main");
+    const tocList = document.getElementById("toc-list");
+
+    if (!content || !tocList) return;
+
+    const headers = content.querySelectorAll("h2, h3");
+
+    headers.forEach(header => {
+        if (!header.id) {
+        header.id = header.textContent
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)/g, "");
+        }
+
+        const li = document.createElement("li");
+        li.style.marginLeft = header.tagName === "H3" ? "1rem" : "0";
+
+        const a = document.createElement("a");
+        a.href = "#" + header.id;
+        a.textContent = header.textContent;
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+    });
+    });
+</script>
+
+
 <body>
   <header>
     <h1><a href="/">{{ site.title }}</a></h1>
@@ -18,9 +49,17 @@
     </nav>
   </header>
 
-  <main>
-    {{ content }}
-  </main>
+  <div class="container">
+    <main>
+        {{ content }}
+    </main>
+
+    <aside id="toc">
+        <h3>Contenido</h3>
+        <ul id="toc-list"></ul>
+    </aside>
+  </div>
+
 
   <footer>
     {{ site.title }} — {{ site.author }}

@@ -54,3 +54,40 @@ pre, code {
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
 }
+
+.container {
+  display: flex;
+  gap: 2rem;
+}
+
+#toc {
+  width: 200px;
+  position: sticky;
+  top: 2rem;
+  height: max-content;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+#toc h3 {
+  margin-top: 0;
+}
+
+#toc a {
+  text-decoration: none;
+  color: #0066cc;
+  font-size: 0.9rem;
+}
+
+#toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+@media (max-width: 900px) {
+  #toc {
+    display: none;
+  }
+}
