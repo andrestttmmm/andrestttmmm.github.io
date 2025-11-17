@@ -7,46 +7,43 @@
   <link rel="stylesheet" href="/assets/style.css">
   {% seo %}
 </head>
-
 <body>
   <header>
     <h1><a href="/">{{ site.title }}</a></h1>
     <nav>
       <a href="/">Inicio</a>
       <a href="/notes/">Notas</a>
-      <a href="/about">Sobre mí</a>
+      <a href="/about/">Sobre mí</a>
     </nav>
+    <button id="theme-toggle">🌓</button>
   </header>
 
   <div class="container">
     <main>
-        {{ content }}
+      {{ content }}
     </main>
 
     <aside id="toc">
-        <h3>Contenido</h3>
-        <ul id="toc-list"></ul>
+      <h3>Contenido</h3>
+      <ul id="toc-list"></ul>
     </aside>
   </div>
-
 
   <footer>
     {{ site.title }} — {{ site.author }}
   </footer>
 
+  <!-- TOC Script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-    const content = document.querySelector("main");
-    const tocList = document.getElementById("toc-list");
+      const content = document.querySelector("main");
+      const tocList = document.getElementById("toc-list");
+      if (!content || !tocList) return;
 
-    if (!content || !tocList) return;
-
-    const headers = content.querySelectorAll("h2, h3");
-
-    headers.forEach(header => {
+      const headers = content.querySelectorAll("h2, h3");
+      headers.forEach(header => {
         if (!header.id) {
-        header.id = header.textContent
-            .toLowerCase()
+          header.id = header.textContent.toLowerCase()
             .replace(/[^a-z0-9]+/g, "-")
             .replace(/(^-|-$)/g, "");
         }
@@ -60,7 +57,27 @@
 
         li.appendChild(a);
         tocList.appendChild(li);
+      });
     });
+  </script>
+
+  <!-- Theme toggle script -->
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Aplicar tema guardado en localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
     });
   </script>
 </body>
