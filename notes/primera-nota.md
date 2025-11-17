@@ -3,8 +3,6 @@ layout: note
 title: Primera nota
 ---
 
-# Primera nota
-
 ## Sección 1
 Contenido de la sección
 
@@ -13,4 +11,3 @@ Más contenido
 
 
 Enlazo a la [segunda nota](segunda-nota).
-
