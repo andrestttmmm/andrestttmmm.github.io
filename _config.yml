@@ -1,3 +1,23 @@
 theme: jekyll-theme-minimal
-title: Jardín Digital Andres
-description: Bookmark this to keep an eye on my project updates!
+
+title: Jardín Digital Andrés
+description: Notas interconectadas, ideas y experimentos.
+author: Andrés
+
+# Colección para tus notas
+collections:
+  notes:
+    output: true
+    permalink: /notes/:path/
+
+# Plugins permitidos por GitHub Pages
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+exclude:
+  - README.md
